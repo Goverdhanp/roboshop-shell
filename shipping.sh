@@ -16,7 +16,7 @@ mvn clean package
 mv target/shipping-1.0.jar shipping.jar 
 
 
-dnf install mysql -y 
+dnf install mysql -y
 
 mysql -h 172.31.14.173 -uroot -pRoboShop@1 < /app/db/schema.sql
 mysql -h 172.31.14.173 -uroot -pRoboShop@1 < /app/db/app-user.sql 

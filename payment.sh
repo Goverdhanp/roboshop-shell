@@ -1,3 +1,7 @@
+component = payment
+source common.sh
+
+
 dnf install python3 gcc python3-devel -y
 
 useradd roboshop
@@ -14,6 +18,6 @@ cd /app
 unzip /tmp/payment.zip
 
 
-systemctl daemon-reload
-systemctl enable payment 
-systemctl restart payment
+systemd_setup
+
+

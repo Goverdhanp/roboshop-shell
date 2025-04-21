@@ -24,7 +24,8 @@ artifact_download(){
     exit_status_print $?
     
     print_head download application content
-    curl -L -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component-v3.zip &>>$log_file
+    # curl -L -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component-v3.zip &>>$log_file
+    curl -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component-v3.zip 
     exit_status_print $?
     cd /app 
     

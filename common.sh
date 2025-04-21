@@ -9,16 +9,23 @@ systemctl restart $component &>> $log_file
 
 artifact_download(){
     print_head add applicatioin user
-    useradd roboshop &>> $log_file
+    id roboshop &>> $log_file
+    if [ $? -ne 0 ] ; then
+        useradd roboshop &>> $log_file
+    fi
     exit_status_print $?
+    
     print_head remove existing aplication code
     rm -rf /app &>> $log_file
     exit_status_print $?
+    
     print_head create application directory
     mkdir /app  &>> $log_file
     exit_status_print $?
+    
     print_head download application content
     curl -L -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component-v3.zip &>> $log_file
+    
     exit_status_print $?
     cd /app 
     

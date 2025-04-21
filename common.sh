@@ -29,7 +29,7 @@ artifact_download(){
     cd /app 
     
     print_head extract application content
-    unzip /tmp/catalogue.zip &>>$log_file
+    unzip /tmp/$component.zip &>>$log_file
     exit_status_print $?
 
     

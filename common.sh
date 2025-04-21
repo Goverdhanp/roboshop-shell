@@ -32,7 +32,12 @@ artifact_download(){
 nodejs_app_setup(){
     print_head disable default nodejs version
     dnf module disable nodejs -y &>> $log_file
-    echo $?
+
+    if [$? -eq 0]; then
+        echo -e "\e[32m >> SUCESS\e[0m"
+    else
+        echo -e "\e[31m >> FAILURE\e[0m"
+
 
     print_head enable nodejs 20
     dnf module enable nodejs:20 -y &>> $log_file

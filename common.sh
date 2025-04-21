@@ -34,7 +34,6 @@ nodejs_app_setup(){
     print_head disable default nodejs version
     dnf module disable nodejs -y &>> $log_file
     exit_status_print $?
-    exit_status_print $?
 
     print_head enable nodejs 20
     dnf module enable nodejs:20 -y &>> $log_file
@@ -99,6 +98,8 @@ exit_status_print(){
             echo -e "\e[32m >> SUCESS\e[0m"
         else
             echo -e "\e[31m >> FAILURE\e[0m"
+
+            exit
     fi
     
     }

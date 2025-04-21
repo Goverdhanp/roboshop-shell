@@ -37,11 +37,15 @@ nodejs_app_setup(){
         echo -e "\e[32m >> SUCESS\e[0m"
     else
         echo -e "\e[31m >> FAILURE\e[0m"
-
+    fi
 
     print_head enable nodejs 20
     dnf module enable nodejs:20 -y &>> $log_file
-    echo $?
+    if [$? -eq 0]; then
+        echo -e "\e[32m >> SUCESS\e[0m"
+    else
+        echo -e "\e[31m >> FAILURE\e[0m"
+    fi
 
     print_head install nodejs 20
     dnf install nodejs -y &>> $log_file
@@ -55,7 +59,7 @@ nodejs_app_setup(){
     echo $?
 
     systemd_setup
-}
+    }
 
 maven_app_setup(){
     dnf install maven -y &>> $log_file

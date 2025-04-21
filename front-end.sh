@@ -1,7 +1,7 @@
 source common.sh
 
 print_head Disable default nginx
-dnf module disable nginx -y &&>> $log_file
+dnf module disable nginx -y &>> $log_file
 
 print_head enable nginx 
 dnf module enable nginx:1.24 -y &>> $log_file

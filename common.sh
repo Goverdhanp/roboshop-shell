@@ -33,7 +33,7 @@ nodejs_app_setup(){
     print_head disable default nodejs version
     dnf module disable nodejs -y &>> $log_file
 
-    if [$? -eq 0]; then
+    if [ $? -eq 0 ]; then
         echo -e "\e[32m >> SUCESS\e[0m"
     else
         echo -e "\e[31m >> FAILURE\e[0m"
@@ -59,7 +59,7 @@ nodejs_app_setup(){
     echo $?
 
     systemd_setup
-    }
+}
 
 maven_app_setup(){
     dnf install maven -y &>> $log_file

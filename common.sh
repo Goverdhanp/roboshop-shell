@@ -99,7 +99,7 @@ exit_status_print(){
         else
             echo -e "\e[31m >> FAILURE\e[0m"
 
-            exit
+            exit 1
     fi
     
     }

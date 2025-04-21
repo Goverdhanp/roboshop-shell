@@ -1,6 +1,6 @@
 systemd_setup(){
 print_head copy the sytemd service file
-cp $component.service /etc/systemd/system/$component.service &>> $log_file
+cp $pwd/$component.service /etc/systemd/system/$component.service &>> $log_file
 systemctl daemon-reload &>> $log_file
 systemctl enable $component  &>> $log_file
 systemctl restart $component &>> $log_file
@@ -110,3 +110,6 @@ exit_status_print(){
     fi
     
     }
+
+
+pwd=$(pwd)

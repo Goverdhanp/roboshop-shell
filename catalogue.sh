@@ -1,5 +1,5 @@
-component = catalogue
 source common.sh
+component = catalogue
 
 print_head copy mognodb repo file
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $log_file

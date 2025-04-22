@@ -105,6 +105,11 @@ exit_status_print(){
         else
             echo -e "\e[31m >> FAILURE\e[0m"
 
+            lno=$(cat -n /tmp/roboshop.log | grep '#################################' | tail -n 2 | head -n | awk '{print $1}')
+            echo
+            echo
+            sed -n -e "$lno, $ p" /tmp/roboshop.log
+            echo
             exit 1
     fi
     
